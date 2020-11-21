@@ -1,29 +1,23 @@
 import lombok.*;
 
-import java.io.Serializable;
-
-
+@AllArgsConstructor
+@Getter
+@Setter
 @ToString
-public class Person implements Serializable {
-    @Getter
-    @Setter
-    private String id;
-    @Getter
-    @Setter
+public class Person {
+    private int id;
     private String name;
-    @Getter
-    @Setter
     private String gender;
-    @Getter
-    @Setter
-    private String BirtDate;
-    private Division Division;
-    @Getter
-    @Setter
-    private String Salary;
+    private String birtDate;
+    private Division division;
+    private String salary;
 
-    public Person () {
-        this.Division = new Division(1);
+    public Person(FlatPerson flatPerson, int divisionId) {
+        this.id = Integer.parseInt(flatPerson.getId());
+        this.name = flatPerson.getName();
+        this.gender = flatPerson.getGender();
+        this.birtDate = flatPerson.getBirtDate();
+        this.division = new Division(divisionId, flatPerson.getDivisionName());
+        this.salary = flatPerson.getSalary();
     }
-
 }
