@@ -1,19 +1,29 @@
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.Date;
+import java.io.Serializable;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Person {
-    private int id;
+
+@ToString
+public class Person implements Serializable {
+    @Getter
+    @Setter
+    private String id;
+    @Getter
+    @Setter
     private String name;
-    private String sex;
-    private Date dateBirth;
-    private Subdivision subdivision;
-    private String salary;
+    @Getter
+    @Setter
+    private String gender;
+    @Getter
+    @Setter
+    private String BirtDate;
+    private Division Division;
+    @Getter
+    @Setter
+    private String Salary;
+
+    public Person () {
+        this.Division = new Division(1);
+    }
+
 }
